@@ -29,52 +29,62 @@ class LFSegmentView:UIView,UICollectionViewDelegate,UICollectionViewDataSource{
     var dataArray:[String] = Array()
     
     var currentIndex = 0
+    var layout = UICollectionViewFlowLayout()
     
     var indexCallback:(Int)->() = {(index) in }
     
     private override init(frame: CGRect) {
-        super.init(frame: frame)
-    }
-    init(frame: CGRect,data:[String]) {
-        super.init(frame: frame)
         
-        self.dataArray = data
-        
-        containerView = UIScrollView(frame: CGRect(x: 0, y: 40, width: self.width, height: self.height - 40))
-        containerView?.contentSize = CGSize(width: self.width * CGFloat(data.count), height: self.height - 40)
+        super.init(frame: frame)
+        containerView = UIScrollView()
         containerView?.isPagingEnabled = true
         containerView?.tag = 10
         containerView?.delegate = self
         self.addSubview(containerView!)
-        let layout = UICollectionViewFlowLayout()
         
-        let itemCount = data.count < 5 ? data.count : 4
         
         layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 1
         layout.scrollDirection = .horizontal
-        let sapce = CGFloat(itemCount * 1)
-        layout.itemSize = CGSize(width: (self.width - 20 - sapce) / CGFloat(itemCount), height: 40)
         
-        topView = UICollectionView(frame: CGRect(x: 0, y: 0, width: self.width, height: 40), collectionViewLayout: layout)
+    
+        topView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         topView?.delegate = self
         topView?.dataSource  = self
-        topView?.backgroundColor = UIColor.clear
         topView?.showsHorizontalScrollIndicator = false
         topView?.alwaysBounceHorizontal = true
+        topView?.backgroundColor = UIColor.clear
         topView?.register(SegmentCell.self, forCellWithReuseIdentifier: "SegmentCell")
         self.addSubview(topView!)
+    }
+    convenience init(num:Int) {
+        self.init(frame: CGRect.zero)
         
     }
     
-    func firstClick(){
+    func updateWithData(arr:[String]){
         
+        self.dataArray = arr
         self.indexCallback(0)
+        self.topView?.reloadData()
     }
+    
+    override func layoutSubviews() {
+       
+        topView?.frame = CGRect(x: 0, y: 0, width: self.width, height: 40)
+        containerView?.frame = CGRect(x: 0, y: 40, width: self.width, height: self.height - 40)
+      
+        let itemCount = self.dataArray.count < 5 ? self.dataArray.count : 4
+        let sapce = CGFloat(itemCount * 1)
+        layout.itemSize = CGSize(width: (self.width - 20 - sapce) / CGFloat(itemCount), height: 40)
+        containerView?.contentSize = CGSize(width: self.width * CGFloat(self.dataArray.count), height: self.height - 40)
+    }
+    
+   
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
+    
         return self.dataArray.count
     }
     

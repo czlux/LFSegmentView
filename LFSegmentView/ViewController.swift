@@ -2,9 +2,7 @@
 //  ViewController.swift
 //  LFSegmentView
 //
-//  Created by YLW on 2019/1/10.
-//  Copyright © 2019 深圳易路网科技有限公司. All rights reserved.
-//
+
 
 import UIKit
 

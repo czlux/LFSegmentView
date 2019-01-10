@@ -14,6 +14,8 @@
 		210308D921E6D98800C52930 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 210308D721E6D98800C52930 /* LaunchScreen.storyboard */; };
 		210308E421E6D98800C52930 /* LFSegmentViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210308E321E6D98800C52930 /* LFSegmentViewTests.swift */; };
 		210308EF21E6D98800C52930 /* LFSegmentViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210308EE21E6D98800C52930 /* LFSegmentViewUITests.swift */; };
+		210308FE21E6DA9900C52930 /* LFViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210308FD21E6DA9900C52930 /* LFViews.swift */; };
+		2103090021E6DAD600C52930 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210308FF21E6DAD600C52930 /* Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		210308EA21E6D98800C52930 /* LFSegmentViewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LFSegmentViewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		210308EE21E6D98800C52930 /* LFSegmentViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LFSegmentViewUITests.swift; sourceTree = "<group>"; };
 		210308F021E6D98800C52930 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		210308FD21E6DA9900C52930 /* LFViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LFViews.swift; sourceTree = "<group>"; };
+		210308FF21E6DAD600C52930 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +101,7 @@
 		210308CD21E6D98800C52930 /* LFSegmentView */ = {
 			isa = PBXGroup;
 			children = (
+				210308FC21E6DA7000C52930 /* SegmentView */,
 				210308CE21E6D98800C52930 /* AppDelegate.swift */,
 				210308D021E6D98800C52930 /* ViewController.swift */,
 				210308D221E6D98800C52930 /* Main.storyboard */,
@@ -123,6 +128,15 @@
 				210308F021E6D98800C52930 /* Info.plist */,
 			);
 			path = LFSegmentViewUITests;
+			sourceTree = "<group>";
+		};
+		210308FC21E6DA7000C52930 /* SegmentView */ = {
+			isa = PBXGroup;
+			children = (
+				210308FD21E6DA9900C52930 /* LFViews.swift */,
+				210308FF21E6DAD600C52930 /* Extension.swift */,
+			);
+			path = SegmentView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,7 +271,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				210308D121E6D98800C52930 /* ViewController.swift in Sources */,
+				210308FE21E6DA9900C52930 /* LFViews.swift in Sources */,
 				210308CF21E6D98800C52930 /* AppDelegate.swift in Sources */,
+				2103090021E6DAD600C52930 /* Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
